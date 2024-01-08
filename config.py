@@ -6,7 +6,7 @@ class Config(object):
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "6624007993:AAEzfv0DsHJ-byIdWD7ol-Pgw6dxc44RX9c")
     TELEGRAM_API = os.environ["TELEGRAM_API","28167530"]
     OWNER = os.environ.get("OWNER", "6440245883")
-    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "ak_imax_premium)
+    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "ak_imax_premium")
     USERNAME = os.environ.get("USERNAME", "Batman")
     PASSWORD = os.environ.get("PASSWORD", "Batman")
     DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://jandu2:jandu2@cluster0.khgirye.mongodb.net/?retryWrites=true&w=majority")
