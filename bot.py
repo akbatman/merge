@@ -196,7 +196,7 @@ async def start_handler(c: Client, m: Message):
     if m.from_user.id != int(Config.OWNER):
         if user.allowed is False:
             res = await m.reply_text(
-                text=f"Hello, **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me!!\n\n**Contact: 🌚 @{Config.USERNAME}** ",
+                text=f"**Hello,** __{m.from_user.first_name}__\n\n 🛡️ Unfortunately you can't use me!!\n\n**Contact: 🌚 @{Config.USERNAME}** ",
                 quote=True,
             )
             return
@@ -219,7 +219,7 @@ async def files_handler(c: Client, m: Message):
     if user_id != int(Config.OWNER):
         if user.allowed is False:
             res = await m.reply_text(
-                text=f"Hᴇʟʟᴏ **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me!!\n\n**Contact: 🌚 @{Config.USERNAME}** ",
+                text=f"**Hello,** __{m.from_user.first_name}__\n\n 🛡️ Unfortunately you can't use me!!\n\n**Contact: 🌚 @{Config.USERNAME}** ",
                 quote=True,
             )
             return
