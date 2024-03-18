@@ -490,9 +490,10 @@ __• Owner can Broadcast Message to Users.__""",
                 InlineKeyboardButton("• Owner •", url="https://t.me/itsmeflashh"),
             ],
             [ 
-	       InlineKeyboardButton("• Close •", callback_data="close"),
-            ],
-	)
+	       InlineKeyboardButton("• Close •", callback_data="close")],
+            ]
+	),
+    )
 
 
 @mergeApp.on_message(
