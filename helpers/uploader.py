@@ -39,7 +39,7 @@ async def uploadVideo(
                     caption=f"**{merged_video_path.rsplit('/',1)[-1]}**\n\n🛰️ File merged by: {cb.from_user.mention}",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"Uploading: `{merged_video_path.rsplit('/',1)[-1]}`",
+                        f"Uploading: **{merged_video_path.rsplit('/',1)[-1]}**",
                         c_time,
                     ),
                 )
@@ -49,7 +49,7 @@ async def uploadVideo(
                     chat_id=int(LOGCHANNEL),
                     document=merged_video_path,
                     thumb=video_thumbnail,
-                    caption=f"`{merged_video_path.rsplit('/',1)[-1]}`\n\n🛰️ File merged by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    caption=f"**{merged_video_path.rsplit('/',1)[-1]}**\n\n🛰️ File merged by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
                         f"Uploading: **{merged_video_path.rsplit('/',1)[-1]}**",
@@ -61,7 +61,7 @@ async def uploadVideo(
                     chat_id=cb.message.chat.id,
                     from_chat_id=sent_.chat.id,
                     message_id=sent_.id,
-                    caption=f"`{merged_video_path.rsplit('/',1)[-1]}`",
+                    caption=f"**{merged_video_path.rsplit('/',1)[-1]}**",
                 )
                 # await sent_.delete()
     else:
@@ -77,10 +77,10 @@ async def uploadVideo(
                     width=width,
                     duration=duration,
                     thumb=video_thumbnail,
-                    caption=f"`{merged_video_path.rsplit('/',1)[-1]}`",
+                    caption=f"**{merged_video_path.rsplit('/',1)[-1]}**",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"Uploading: `{merged_video_path.rsplit('/',1)[-1]}`",
+                        f"Uploading: **{merged_video_path.rsplit('/',1)[-1]}**",
                         c_time,
                     ),
                 )
@@ -90,10 +90,10 @@ async def uploadVideo(
                     chat_id=cb.message.chat.id,
                     document=merged_video_path,
                     thumb=video_thumbnail,
-                    caption=f"`{merged_video_path.rsplit('/',1)[-1]}`",
+                    caption=f"**{merged_video_path.rsplit('/',1)[-1]}**",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"Uploading: `{merged_video_path.rsplit('/',1)[-1]}`",
+                        f"Uploading: **{merged_video_path.rsplit('/',1)[-1]}**",
                         c_time,
                     ),
                 )
@@ -123,10 +123,10 @@ async def uploadFiles(
         sent_: Message = await c.send_document(
             chat_id=cb.message.chat.id,
             document=up_path,
-            caption=f"`{up_path.rsplit('/',1)[-1]}`",
+            caption=f"**{up_path.rsplit('/',1)[-1]}**",
             progress=prog.progress_for_pyrogram,
             progress_args=(
-                f"Uploading: `{up_path.rsplit('/',1)[-1]}`",
+                f"Uploading: **{up_path.rsplit('/',1)[-1]}**",
                 c_time,
                 f"\n**Uploading: {n}/{all}**"
             ),
@@ -136,7 +136,7 @@ async def uploadFiles(
                 media = sent_.video or sent_.document
                 await sent_.copy(
                     chat_id=int(LOGCHANNEL),
-                    caption=f"`{media.file_name}`\n\nExtracted by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    caption=f"**{media.file_name}**\n\nExtracted by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                 )
     except:
         1    
