@@ -36,7 +36,7 @@ async def uploadVideo(
                     width=width,
                     duration=duration,
                     thumb=video_thumbnail,
-                    caption=f"**{merged_video_path.rsplit('/',1)[-1]}**\n\n🛰️ File merged by: {cb.from_user.mention}",
+                    caption=f"__{merged_video_path.rsplit('/',1)[-1]}__\n🛰️ File merged by: {cb.from_user.mention}",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
                         f"Uploading: **{merged_video_path.rsplit('/',1)[-1]}**",
@@ -49,7 +49,7 @@ async def uploadVideo(
                     chat_id=int(LOGCHANNEL),
                     document=merged_video_path,
                     thumb=video_thumbnail,
-                    caption=f"**{merged_video_path.rsplit('/',1)[-1]}**\n\n🛰️ File merged by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    caption=f"__{merged_video_path.rsplit('/',1)[-1]}__\n🛰️ File merged by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
                         f"Uploading: **{merged_video_path.rsplit('/',1)[-1]}**",
@@ -105,7 +105,7 @@ async def uploadVideo(
                 media = sent_.video or sent_.document
                 await sent_.copy(
                     chat_id=int(LOGCHANNEL),
-                    caption=f"**{media.file_name}**\n\n🛰️ File merged by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    caption=f"__{media.file_name}__\n🛰️ File merged by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                 )
 
 
@@ -136,7 +136,7 @@ async def uploadFiles(
                 media = sent_.video or sent_.document
                 await sent_.copy(
                     chat_id=int(LOGCHANNEL),
-                    caption=f"**{media.file_name}**\n\nExtracted by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    caption=f"__{media.file_name}__\nExtracted by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                 )
     except:
         1    
