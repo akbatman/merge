@@ -488,8 +488,7 @@ __• Owner can Broadcast Message to Users.__
         reply_markup=InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton("• Channel •", url="https://t.me/Anaavaran")
-                        ] [
-                InlineKeyboardButton("• Owner •", url="https://t.me/itsmeflashh")
+                [InlineKeyboardButton("• Owner •", url="https://t.me/itsmeflashh")
                         ],[
                 InlineKeyboardButton("• Close •", callback_data="close")],
             ]
