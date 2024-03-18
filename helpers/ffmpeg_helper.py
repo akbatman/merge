@@ -95,7 +95,7 @@ async def MergeSub(filePath: str, subPath: str, user_id):
             subTrack += 1
     muxcmd.append(f"-metadata:s:s:{subTrack}")
     subTrack += 1
-    subTitle = f"Track {subTrack} - tg@Sujan_BotZ"
+    subTitle = f"Track {subTrack} - TG:Anaavaran"
     muxcmd.append(f"title={subTitle}")
     muxcmd.append("-c:v")
     muxcmd.append("copy")
@@ -103,11 +103,11 @@ async def MergeSub(filePath: str, subPath: str, user_id):
     muxcmd.append("copy")
     muxcmd.append("-c:s")
     muxcmd.append("srt")
-    muxcmd.append(f"./downloads/{str(user_id)}/[@Sujan_BotZ]_softmuxed_video.mkv")
+    muxcmd.append(f"./downloads/{str(user_id)}/[TG:Anaavaran]_softmuxed_video.mkv")
     LOGGER.info("Muxing subtitles")
     subprocess.call(muxcmd)
     orgFilePath = shutil.move(
-        f"downloads/{str(user_id)}/[@Sujan_BotZ]_softmuxed_video.mkv", filePath
+        f"downloads/{str(user_id)}/[TG:Anaavaran]_softmuxed_video.mkv", filePath
     )
     return orgFilePath
 
@@ -147,7 +147,7 @@ def MergeSubNew(filePath: str, subPath: str, user_id, file_list):
         muxcmd.append("-map")
         muxcmd.append(f"{j}:s")
         muxcmd.append(f"-metadata:s:s:{subTrack}")
-        muxcmd.append(f"title=Track {subTrack+1} - tg@Sujan_BotZ")
+        muxcmd.append(f"title=Track {subTrack+1} - TG:Anaavaran")
         subTrack += 1
     muxcmd.append("-c:v")
     muxcmd.append("copy")
@@ -155,10 +155,10 @@ def MergeSubNew(filePath: str, subPath: str, user_id, file_list):
     muxcmd.append("copy")
     muxcmd.append("-c:s")
     muxcmd.append("srt")
-    muxcmd.append(f"./downloads/{str(user_id)}/[@Sujan_BotZ]_softmuxed_video.mkv")
+    muxcmd.append(f"./downloads/{str(user_id)}/[TG:Anaavaran]_softmuxed_video.mkv")
     LOGGER.info("Sub muxing")
     subprocess.call(muxcmd)
-    return f"downloads/{str(user_id)}/[@Sujan_BotZ]_softmuxed_video.mkv"
+    return f"downloads/{str(user_id)}/[TG:Anaavaran]_softmuxed_video.mkv"
 
 
 def MergeAudio(videoPath: str, files_list: list, user_id):
@@ -187,7 +187,7 @@ def MergeAudio(videoPath: str, files_list: list, user_id):
         muxcmd.append("-map")
         muxcmd.append(f"{j}:a")
         muxcmd.append(f"-metadata:s:a:{audioTracks}")
-        muxcmd.append(f"title=Track {audioTracks+1} - tg@Sujan_BotZ")
+        muxcmd.append(f"title=Track {audioTracks+1} - TG:Anaavaran)
         audioTracks += 1
     muxcmd.append(f"-disposition:s:a:{fAudio}")
     muxcmd.append("default")
