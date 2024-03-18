@@ -315,7 +315,7 @@ async def files_handler(c: Client, m: Message):
         elif len(queueDB.get(user_id)["videos"]) > 100:
             markup = await makeButtons(c, m, queueDB)
             await editable.text(
-                "Max 10 videos allowed", reply_markup=InlineKeyboardMarkup(markup)
+                "Max 100 videos allowed", reply_markup=InlineKeyboardMarkup(markup)
             )
 
     elif user.merge_mode == 2:
