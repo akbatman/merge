@@ -482,7 +482,8 @@ __• Merge Upto 100 files in a Row.__
 __• upload as Document or Video Format.__
 __• Custom Thumbnail Support.__
 __• User only Get Access through Passcode.__
-__• Owner can Broadcast Message to Users.__""",
+__• Owner can Broadcast Message to Users.__
+                    """,
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [
