@@ -125,7 +125,7 @@ chat_id=cb.from_user.id, message_ids=list_message_ids ):
         await cb.message.edit("✅ Sucessfully Merged Video !")
     except MessageNotModified:
         await cb.message.edit("Sucessfully Merged Video ! ✅")
-    LOGGER.info(f"Video merged for: {cb.from_user.first_name} ")
+    LOGGER.info(f"🛰️ File merged by: {cb.from_user.first_name} ")
     await asyncio.sleep(3)
     file_size = os.path.getsize(merged_video_path)
     os.rename(merged_video_path, new_file_name)
