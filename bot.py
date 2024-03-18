@@ -487,12 +487,12 @@ __• Owner can Broadcast Message to Users.__
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                InlineKeyboardButton("• Channel •", url="https://t.me/Anaavaran")
+                [InlineKeyboardButton("• Channel •", url="https://t.me/Anaavaran")
                 InlineKeyboardButton("• Owner •", url="https://t.me/itsmeflashh")
                    ],[ 
 	       InlineKeyboardButton("• Close •", callback_data="close")],
             ]
-	),
+        ),
     )
 
 
