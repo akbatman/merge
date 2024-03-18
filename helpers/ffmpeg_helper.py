@@ -199,12 +199,12 @@ def MergeAudio(videoPath: str, files_list: list, user_id):
     muxcmd.append("copy")
     muxcmd.append("-c:s")
     muxcmd.append("copy")
-    muxcmd.append(f"downloads/{str(user_id)}/[@Sujan_BotZ]_export.mkv")
+    muxcmd.append(f"downloads/{str(user_id)}/[TG:Anaavaran]_export.mkv")
 
     LOGGER.info(muxcmd)
     process = subprocess.call(muxcmd)
     LOGGER.info(process)
-    return f"downloads/{str(user_id)}/[@Sujan_BotZ]_export.mkv"
+    return f"downloads/{str(user_id)}/[TG:Anaavaran]_export.mkv"
 
 
 async def cult_small_video(video_file, output_directory, start_time, end_time, format_):
