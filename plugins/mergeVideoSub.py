@@ -67,7 +67,7 @@ async def mergeSub(c: Client, cb: CallbackQuery, new_file_name: str):
                 message=media,
                 file_name=f"downloads/{str(cb.from_user.id)}/{str(i.id)}/{tmpFileName}",
                 progress=prog.progress_for_pyrogram,
-                progress_args=(f"<b>Status: 📤 Downloading File {n}/{all}</b>\n\n<b>📁 Name:</b> <i>{media.file_name}</i>", c_time),
+                progress_args=(f"<b>〘 📤 Downloading File {n}/{all} 〙</b>\n\n<b>📁 Name:</b> <i>{media.file_name}</i>", c_time),
             )
             n+=1
             if gDict[cb.message.chat.id] and cb.message.id in gDict[cb.message.chat.id]:
