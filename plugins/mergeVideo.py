@@ -58,7 +58,7 @@ chat_id=cb.from_user.id, message_ids=list_message_ids ):
                 message=media,
                 file_name=f"downloads/{str(cb.from_user.id)}/{str(i.id)}/vid.mkv",  # fix for filename with single quote(') in name
                 progress=prog.progress_for_pyrogram,
-                progress_args=("<b>Status: 📤 Downloading File {n}/{all}</b>\n\n<b>📁 Name:</b> <i>{media.file_name}</i>"),
+                progress_args=(f"<b>Status: 📤 Downloading File {n}/{all}</b>\n\n<b>📁 Name:</b> <i>{media.file_name}</i>f"),
             )
             n+=1
             if gDict[cb.message.chat.id] and cb.message.id in gDict[cb.message.chat.id]:
