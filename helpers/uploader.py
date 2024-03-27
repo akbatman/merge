@@ -39,7 +39,7 @@ async def uploadVideo(
                     caption=f"<i>{merged_video_path.rsplit('/',1)[-1]}</i>\n\nn🛰️ <b>Merged by:</b> {cb.from_user.mention}",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"<b>Status:📤Uploading....</b>\n<b>📁 Name:</b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
+                        f"<b>Status: 📤Uploading....</b>\n<b>📁 Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
@@ -49,10 +49,10 @@ async def uploadVideo(
                     chat_id=int(LOGCHANNEL),
                     document=merged_video_path,
                     thumb=video_thumbnail,
-                    caption=f"<i>{merged_video_path.rsplit('/',1)[-1]}</i>\n\nn🛰️ <b>Merged by:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    caption=f"<i>{merged_video_path.rsplit('/',1)[-1]}</i>\n\n🛰️ <b>Merged by:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"<b>Status:📤Uploading....</b>\n<b>📁 Name:</b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
+                        f"<b>Status: 📤Uploading....</b>\n<b>📁 Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
@@ -80,7 +80,7 @@ async def uploadVideo(
                     caption=f"<b>{merged_video_path.rsplit('/',1)[-1]}</b>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"<b>Status:📤Uploading....</b>\n<b>📁 Name:</b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
+                        f"<b>Status: 📤Uploading....</b>\n<b>📁 Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
@@ -93,7 +93,7 @@ async def uploadVideo(
                     caption=f"<b>{merged_video_path.rsplit('/',1)[-1]}</b>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"<b>Status:📤Uploading....</b>\n<b>📁 Name:</b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
+                        f"<b>Status: 📤Uploading....</b>\n<b>📁 Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
@@ -105,7 +105,7 @@ async def uploadVideo(
                 media = sent_.video or sent_.document
                 await sent_.copy(
                     chat_id=int(LOGCHANNEL),
-                    caption=f"<i>{media.file_name}</i>\n\nn🛰️ <b>Merged by:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    caption=f"<i>{media.file_name}</i>\n\n🛰️ <b>Merged by:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                 )
 
 
@@ -126,7 +126,7 @@ async def uploadFiles(
             caption=f"<b>{up_path.rsplit('/',1)[-1]}</b>",
             progress=prog.progress_for_pyrogram,
             progress_args=(
-                f"<b>Status:📤Uploading....</b>\n<b>📁 Name:</b><i>{up_path.rsplit('/',1)[-1]}<i>",
+                f"<b>Status: 📤Uploading....</b>\n<b>📁 Name: </b><i>{up_path.rsplit('/',1)[-1]}<i>",
                 c_time,
                 f"\n**Uploading: {n}/{all}**"
             ),
@@ -136,7 +136,7 @@ async def uploadFiles(
                 media = sent_.video or sent_.document
                 await sent_.copy(
                     chat_id=int(LOGCHANNEL),
-                    caption=f"__{media.file_name}__\nExtracted by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    caption=f"<i>{media.file_name}<i>\n\n🛰️ <b>Extracted by:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                 )
     except:
         1    
