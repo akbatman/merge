@@ -130,7 +130,7 @@ chat_id=cb.from_user.id, message_ids=list_message_ids ):
     file_size = os.path.getsize(merged_video_path)
     os.rename(merged_video_path, new_file_name)
     await cb.message.edit(
-        f"🔄 Renamed Merged Video to\n **{new_file_name.rsplit('/',1)[-1]}**"
+        f"🔄 Renamed Merged Video to\n <code>{new_file_name.rsplit('/',1)[-1]}</code>"
     )
     await asyncio.sleep(3)
     merged_video_path = new_file_name
