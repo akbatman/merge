@@ -39,7 +39,7 @@ async def uploadVideo(
                     caption=f"__{merged_video_path.rsplit('/',1)[-1]}__\n🛰️ File merged by: {cb.from_user.mention}",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"Uploading: **{merged_video_path.rsplit('/',1)[-1]}**",
+                        f"<b>Status:</b> 📤Uploading... **{merged_video_path.rsplit('/',1)[-1]}**",
                         c_time,
                     ),
                 )
@@ -52,7 +52,7 @@ async def uploadVideo(
                     caption=f"__{merged_video_path.rsplit('/',1)[-1]}__\n🛰️ File merged by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"Uploading: **{merged_video_path.rsplit('/',1)[-1]}**",
+                        f"<b>Status:</b> 📤Uploading... **{merged_video_path.rsplit('/',1)[-1]}**",
                         c_time,
                     ),
                 )
@@ -80,7 +80,7 @@ async def uploadVideo(
                     caption=f"**{merged_video_path.rsplit('/',1)[-1]}**",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"Uploading: **{merged_video_path.rsplit('/',1)[-1]}**",
+                        f"<b>Status:</b> 📤Uploading... **{merged_video_path.rsplit('/',1)[-1]}**",
                         c_time,
                     ),
                 )
@@ -93,7 +93,7 @@ async def uploadVideo(
                     caption=f"**{merged_video_path.rsplit('/',1)[-1]}**",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"Uploading: **{merged_video_path.rsplit('/',1)[-1]}**",
+                        f"<b>Status:</b> 📤Uploading... **{merged_video_path.rsplit('/',1)[-1]}**",
                         c_time,
                     ),
                 )
@@ -126,7 +126,7 @@ async def uploadFiles(
             caption=f"**{up_path.rsplit('/',1)[-1]}**",
             progress=prog.progress_for_pyrogram,
             progress_args=(
-                f"Uploading: **{up_path.rsplit('/',1)[-1]}**",
+                f"<b>Status:</b> 📤Uploading... **{up_path.rsplit('/',1)[-1]}**",
                 c_time,
                 f"\n**Uploading: {n}/{all}**"
             ),
