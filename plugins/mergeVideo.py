@@ -63,7 +63,7 @@ chat_id=cb.from_user.id, message_ids=list_message_ids ):
             n+=1
             if gDict[cb.message.chat.id] and cb.message.id in gDict[cb.message.chat.id]:
                 return
-            await cb.message.edit(f"Downloaded Sucessfully ... **{media.file_name}**")
+            await cb.message.edit(f"Downloaded Sucessfully ... `{media.file_name}`")
             LOGGER.info(f"Downloaded Sucessfully ... {media.file_name}")
             await asyncio.sleep(5)
         except UnknownError as e:
@@ -125,7 +125,7 @@ chat_id=cb.from_user.id, message_ids=list_message_ids ):
         await cb.message.edit("✅ Sucessfully Merged Video !")
     except MessageNotModified:
         await cb.message.edit("Sucessfully Merged Video ! ✅")
-    LOGGER.info(f"🛰️ File merged by: {cb.from_user.first_name} ")
+    LOGGER.info(f"Video merged for: {cb.from_user.first_name} ")
     await asyncio.sleep(3)
     file_size = os.path.getsize(merged_video_path)
     os.rename(merged_video_path, new_file_name)
