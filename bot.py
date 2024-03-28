@@ -275,13 +275,13 @@ async def files_handler(c: Client, m: Message):
             )
             return
         editable = await m.reply_text("🎗️", quote=True)
-        MessageText = "<b>‣ File Added!,</b>\n<i>To continue process:</i>\n<i>- Add another video</i>\n<i>- Press </i><b>"🧬 Merge Button"</b> <i>to start merging the files.</i>"
+        MessageText = "<b>‣ File Added!,</b>\n<i>To continue process:</i>\n<i>- Add another video</i>\n<i>- Press </i><b>'🧬 Merge Button'</b> <i>to start merging the files.</i>"
 
         if queueDB.get(user_id, None) is None:
             queueDB.update({user_id: {"videos": [], "subtitles": [], "audios": []}})
         if (
             len(queueDB.get(user_id)["videos"]) >= 0
-            and len(queueDB.get(user_id)["videos"]) < 100
+            and len(queueDB.get(user_id)["videos"]) < 69
         ):
             queueDB.get(user_id)["videos"].append(m.id)
             queueDB.get(m.from_user.id)["subtitles"].append(None)
@@ -292,7 +292,7 @@ async def files_handler(c: Client, m: Message):
 
             if len(queueDB.get(user_id)["videos"]) == 1:
                 reply_ = await editable.edit(
-                    "<b>Nice, now Send me all the <u>Videos</u> To Merge Them Into a Single File!!</b>",
+                    "<b><u>‣ Please send another 'Video' to continue the merging process.</u></b>",
                     reply_markup=InlineKeyboardMarkup(
                         bMaker.makebuttons(["Cancel"], ["cancel"])
                     ),
@@ -305,23 +305,23 @@ async def files_handler(c: Client, m: Message):
                 await c.delete_messages(
                     chat_id=m.chat.id, message_ids=replyDB.get(user_id)
                 )
-            if len(queueDB.get(user_id)["videos"]) == 100:
+            if len(queueDB.get(user_id)["videos"]) == 69:
                 MessageText = "Okay, Now Just Press <b>🧬 Merge** Button</b>"
             markup = await makeButtons(c, m, queueDB)
             reply_ = await editable.edit(
                 text=MessageText, reply_markup=InlineKeyboardMarkup(markup)
             )
             replyDB.update({user_id: reply_.id})
-        elif len(queueDB.get(user_id)["videos"]) > 100:
+        elif len(queueDB.get(user_id)["videos"]) > 69:
             markup = await makeButtons(c, m, queueDB)
             await editable.text(
                 "Max 69 videos allowed", reply_markup=InlineKeyboardMarkup(markup)
             )
 
     elif user.merge_mode == 2:
-        editable = await m.reply_text("Please wait...", quote=True)
+        editable = await m.reply_text("💫", quote=True)
         MessageText = (
-            "<b>Nice, now Send all the <u>Audios</u> To Merge Them Into a Single File!!</b>"
+            "<b><u>‣ Please send another 'Audio' to continue the merging process.</u></b>"
         )
 
         if queueDB.get(user_id, None) is None:
@@ -330,7 +330,7 @@ async def files_handler(c: Client, m: Message):
             queueDB.get(user_id)["videos"].append(m.id)
             # if len(queueDB.get(user_id)["videos"])==1:
             reply_ = await editable.edit(
-                text="<i>Now, Send all the audios you want to merge.</i>",
+                text="<i>Now, Send all the 'audios' you want to merge.</i>",
                 reply_markup=InlineKeyboardMarkup(
                     bMaker.makebuttons(["Cancel"], ["cancel"])
                 ),
@@ -358,15 +358,15 @@ async def files_handler(c: Client, m: Message):
 
     elif user.merge_mode == 3:
 
-        editable = await m.reply_text("Please wait...", quote=True)
-        MessageText = "<b>Nice, now Send me all the <u>Subtitles</u> to Merge Them Into a Single File!!</b>"
+        editable = await m.reply_text("💫", quote=True)
+        MessageText = "<b><u>‣ Please send another 'Subtitle' to continue the merging process.</u></b>"
         if queueDB.get(user_id, None) is None:
             queueDB.update({user_id: {"videos": [], "subtitles": [], "audios": []}})
         if len(queueDB.get(user_id)["videos"]) == 0:
             queueDB.get(user_id)["videos"].append(m.id)
             # if len(queueDB.get(user_id)["videos"])==1:
             reply_ = await editable.edit(
-                text="<i>Now, Send All The Subtitles You Want To Merge.<i>",
+                text="<i>Now, Send All The 'Subtitles' You Want To Merge.<i>",
                 reply_markup=InlineKeyboardMarkup(
                     bMaker.makebuttons(["Cancel"], ["cancel"])
                 ),
@@ -399,7 +399,7 @@ async def photo_handler(c: Client, m: Message):
     # if m.from_user.id != int(Config.OWNER):
     if not user.allowed:
         res = await m.reply_text(
-            text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately you can't use me!\n\n**Contact: @{Config.USERNAME}** ",
+            text=f"Hi **{m.from_user.first_name}**\n\n 🛡️ Unfortunately!!, you can't use me...\n\n**Contact: @{Config.USERNAME}** ",
             quote=True,
         )
         del user
