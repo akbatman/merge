@@ -35,7 +35,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     # async def cb_handler(c: Client, cb: CallbackQuery):
     if cb.data == "merge":
         await cb.message.edit(
-            text="<b>📡 • Where do you want me to Upload the File.?</b>",
+            text="<b>‣ Where do you want me to Upload the new File.?\n<i>- Choose from 'TG' or 'Drive'</i></b>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
