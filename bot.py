@@ -54,10 +54,10 @@ class MergeBot(Client):
     def start(self):
         super().start()
         try:
-            self.send_message(chat_id=int(Config.LOGCHANNEL), text="<b>Bot Started 🕊️</b>")
+            self.send_message(chat_id=int(Config.LOGCHANNEL), text="<b>Robot has been Started Successfully 🥁</b>")
         except Exception as err:
             LOGGER.error("Boot Alert Failed! Please Start Bot In PM")
-        return LOGGER.info("Bot Started 🕊️")
+        return LOGGER.info("Robot has been Started Successfully 🥁")
 
     def stop(self):
         super().stop()
@@ -94,7 +94,7 @@ async def loginHandler(c: Client, m: Message):
     if user.user_id == int(Config.OWNER):
         user.allowed = True
     if user.allowed:
-        await m.reply_text(text=f"<b>🌚 You Already have the access to use me!!</b>", quote=True)
+        await m.reply_text(text=f"<b><i>😍 You Already have the 'Access' to use me!!</i></b>", quote=True)
     else:
         try:
             passwd = m.text.split(" ", 1)[1]
