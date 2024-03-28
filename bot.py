@@ -621,7 +621,7 @@ async def showQueue(c: Client, cb: CallbackQuery):
     try:
         markup = await makeButtons(c, cb.message, queueDB)
         await cb.message.edit(
-            text="Okay,\nNow send me Another File or Press **Merge 🧪** Button!",
+            text="Okay,\nNow send me Another File or Press <b>🧬 Merge</b> Button!",
             reply_markup=InlineKeyboardMarkup(markup),
         )
     except ValueError:
