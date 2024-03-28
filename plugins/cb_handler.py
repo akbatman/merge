@@ -35,14 +35,14 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     # async def cb_handler(c: Client, cb: CallbackQuery):
     if cb.data == "merge":
         await cb.message.edit(
-            text="Where do you want to upload the file?",
+            text="<b>📡 • Where do you want me to Upload the File.?</b>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "📤 To Telegram", callback_data="to_telegram"
+                            "🐣 to Telegram", callback_data="to_telegram"
                         ),
-                        InlineKeyboardButton("🌫️ To Drive", callback_data="to_drive"),
+                        InlineKeyboardButton("☁️ to Drive", callback_data="to_drive"),
                     ],
                     [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
                 ]
@@ -68,12 +68,12 @@ async def callback_handler(c: Client, cb: CallbackQuery):
             return
         UPLOAD_TO_DRIVE.update({f"{cb.from_user.id}": True})
         await cb.message.edit(
-            text="Okay I'll upload to the drive\nDo you want to rename? Default file name is **File merged by Imax-Movies.mkv**",
+            text="<b>Okay I'll upload to the drive</b>\n<i>Would you like me to rename it to something, or the File name will be File merged by Imax-Movies.mkv</i>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("👆 Default", callback_data="rename_NO"),
-                        InlineKeyboardButton("✍️ Rename", callback_data="rename_YES"),
+                        InlineKeyboardButton("💈 Default", callback_data="rename_NO"),
+                        InlineKeyboardButton(" 🏷️ Rename", callback_data="rename_YES"),
                     ],
                     [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
                 ]
@@ -84,11 +84,11 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "to_telegram":
         UPLOAD_TO_DRIVE.update({f"{cb.from_user.id}": False})
         await cb.message.edit(
-            text="How do yo want to upload the file",
+            text="👀 • In what format would you like the file uploaded.?",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🎞️ Video", callback_data="video"),
+                        InlineKeyboardButton("🖼️ Video", callback_data="video"),
                         InlineKeyboardButton("📁 File", callback_data="document"),
                     ],
                     [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
@@ -100,12 +100,12 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "document":
         UPLOAD_AS_DOC.update({f"{cb.from_user.id}": True})
         await cb.message.edit(
-            text="Do you want to rename?\nDefault file name is **File merged by Imax-Movies.mkv**",
+            text="🪧<b> • Would you like me to rename it to something, or the File name will be</b> <i>File merged by Imax-Movies.mkv</i>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("👆 Default", callback_data="rename_NO"),
-                        InlineKeyboardButton("✍️ Rename", callback_data="rename_YES"),
+                        InlineKeyboardButton("💈 Default", callback_data="rename_NO"),
+                        InlineKeyboardButton("🏷️ Rename", callback_data="rename_YES"),
                     ],
                     [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
                 ]
@@ -116,12 +116,12 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "video":
         UPLOAD_AS_DOC.update({f"{cb.from_user.id}": False})
         await cb.message.edit(
-            text="Do you want to rename? Default file name is **File merged by Imax-Movies.mkv**",
+            text="🪧<b> • Would you like me to rename it to something, or the File name will be</b> <i>File merged by Imax-Movies.mkv</i>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("👆 Default", callback_data="rename_NO"),
-                        InlineKeyboardButton("✍️ Rename", callback_data="rename_YES"),
+                        InlineKeyboardButton("💈 Default", callback_data="rename_NO"),
+                        InlineKeyboardButton("🏷️ Rename", callback_data="rename_YES"),
                     ],
                     [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
                 ]
@@ -191,7 +191,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
         else:
             await c.answer_callback_query(
                 callback_query_id=cb.id,
-                text="⚠️ Opps ⚠️ \n I Got a False Visitor 🚸 !! \n\n 📛 Stay At Your Limits !!📛",
+                text="⚠️ Oops ⚠️ \n I Got a False Visitor 🚸 !! \n\n 📛 Stay in Your Limits !!📛",
                 show_alert=True,
                 cache_time=0,
             )
