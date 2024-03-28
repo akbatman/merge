@@ -51,8 +51,8 @@ async def mergeSub(c: Client, cb: CallbackQuery, new_file_name: str):
     n=1
     for i in msgs:
         media = i.video or i.document
-        await cb.message.edit(f"📥 Starting Download of ... `{media.file_name}`")
-        LOGGER.info(f"📥 Starting Download of ... {media.file_name}")
+        await cb.message.edit(f"📥 Starting Download of ... <i>{media.file_name}</i>")
+        LOGGER.info(f"📥 Starting Download of ... <i>{media.file_name}</i>")
         currentFileNameExt = media.file_name.rsplit(sep=".")[-1].lower()
         if currentFileNameExt in VIDEO_EXTENSIONS:
             tmpFileName = "vid.mkv"
@@ -67,13 +67,13 @@ async def mergeSub(c: Client, cb: CallbackQuery, new_file_name: str):
                 message=media,
                 file_name=f"downloads/{str(cb.from_user.id)}/{str(i.id)}/{tmpFileName}",
                 progress=prog.progress_for_pyrogram,
-                progress_args=(f"<b>〘 📤 Downloading File {n}/{all} 〙</b>\n\n<b>📁 Name:</b> <i>{media.file_name}</i>", c_time),
+                progress_args=(f"<b>〘 📤 Downloading File - {n}/{all} 〙</b>\n\n<b>📁 Name:</b> <i>{media.file_name}</i>", c_time),
             )
             n+=1
             if gDict[cb.message.chat.id] and cb.message.id in gDict[cb.message.chat.id]:
                 return
-            await cb.message.edit(f"Downloaded Sucessfully ... `{media.file_name}`")
-            LOGGER.info(f"Downloaded Sucessfully ... {media.file_name}")
+            await cb.message.edit(f"Downloaded Sucessfully ... <i>{media.file_name}</i>")
+            LOGGER.info(f"Downloaded Sucessfully ... <i>{media.file_name}</i>")
             await asyncio.sleep(5)
         except Exception as downloadErr:
             LOGGER.warning(f"Failed to download Error: {downloadErr}")
@@ -106,7 +106,7 @@ async def mergeSub(c: Client, cb: CallbackQuery, new_file_name: str):
     file_size = os.path.getsize(subbed_video)
     os.rename(subbed_video, new_file_name)
     await cb.message.edit(
-        f"🔄 Renaming Video to\n **{new_file_name.rsplit('/',1)[-1]}**"
+        f"🔄 Renaming Video to\n <i>{new_file_name.rsplit('/',1)[-1]}</i>"
     )
     await asyncio.sleep(3)
     merged_video_path = new_file_name
