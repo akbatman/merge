@@ -54,10 +54,10 @@ class MergeBot(Client):
     def start(self):
         super().start()
         try:
-            self.send_message(chat_id=int(Config.LOGCHANNEL), text="<b>Bot Started 🌝</b>")
+            self.send_message(chat_id=int(Config.LOGCHANNEL), text="<b>Bot Started 🕊️</b>")
         except Exception as err:
             LOGGER.error("Boot Alert Failed! Please Start Bot In PM")
-        return LOGGER.info("Bot Started 🌝")
+        return LOGGER.info("Bot Started 🕊️")
 
     def stop(self):
         super().stop()
@@ -94,7 +94,7 @@ async def loginHandler(c: Client, m: Message):
     if user.user_id == int(Config.OWNER):
         user.allowed = True
     if user.allowed:
-        await m.reply_text(text=f"**Don't Spam**\n  ⚡ You can Use me!", quote=True)
+        await m.reply_text(text=f"<b>You Already have the access⚡ to me!!</b>", quote=True)
     else:
         try:
             passwd = m.text.split(" ", 1)[1]
@@ -104,7 +104,7 @@ async def loginHandler(c: Client, m: Message):
         if passwd == Config.PASSWORD:
             user.allowed = True
             await m.reply_text(
-                text=f"**Access Granted ✅,**\n  ⚡ Nᴏᴡ Yᴏᴜ Cᴀɴ Uꜱᴇ Mᴇ!!", quote=True
+                text=f"<b>Access Granted ✅,</b>\n <i>⚡ Now you can use my Powers!!</i>", quote=True
             )
         else:
             await m.reply_text(
@@ -204,7 +204,7 @@ async def start_handler(c: Client, m: Message):
         user.allowed = True
         user.set()
     res = await m.reply_text(
-        text=f"**Hello,** __{m.from_user.first_name}__\n\n➻ I'm a video/File Merger Bot.\n\n➻ I can merge Multiple Files and Upload them on Telegram and Drive.\n\n**Owner: @{Config.USERNAME}** ",
+        text=f"<b>Hey</b> {m.from_user.first_name},\n\n\This is Popka \n\n<i>➻ I'm a video/File Merger Bot. I can merge Multiple Files and Upload them on Telegram and Drive.</i>\n───────────────────\n**Owner: @{Config.USERNAME}** ",
         quote=True,
     )
     del user
@@ -227,7 +227,7 @@ async def files_handler(c: Client, m: Message):
         return
     input_ = f"downloads/{str(user_id)}/input.txt"
     if os.path.exists(input_):
-        await m.reply_text("Oopsie 🥱,\nOne Process is already in System!\nWait for it to be Completed.")
+        await m.reply_text("nah nah 🥱,\nOne Process is already in System!\nWait for it to be Completed.")
         return
     media = m.video or m.document or m.audio
     if media.file_name is None:
@@ -275,7 +275,7 @@ async def files_handler(c: Client, m: Message):
             )
             return
         editable = await m.reply_text("🚀", quote=True)
-        MessageText = "**Noice,**\n__Now send me Another Video File,\n or Press **Merge 🧪** Button!"
+        MessageText = "<b>File added!</b>\n<i>now add another Video</i> or Press <b>🧬 Merge Button!</b>"
 
         if queueDB.get(user_id, None) is None:
             queueDB.update({user_id: {"videos": [], "subtitles": [], "audios": []}})
@@ -292,7 +292,7 @@ async def files_handler(c: Client, m: Message):
 
             if len(queueDB.get(user_id)["videos"]) == 1:
                 reply_ = await editable.edit(
-                    "**Send Me Some More Videos To Merge Them Into Single File**",
+                    "<b>Nice, now Send me all the <u>Videos</u> To Merge Them Into a Single File!!</b>",
                     reply_markup=InlineKeyboardMarkup(
                         bMaker.makebuttons(["Cancel"], ["cancel"])
                     ),
@@ -306,7 +306,7 @@ async def files_handler(c: Client, m: Message):
                     chat_id=m.chat.id, message_ids=replyDB.get(user_id)
                 )
             if len(queueDB.get(user_id)["videos"]) == 100:
-                MessageText = "Okay, Now Just Press **Merge 🧪** Button Plox!"
+                MessageText = "Okay, Now Just Press <b>🧬 Merge** Button</b>"
             markup = await makeButtons(c, m, queueDB)
             reply_ = await editable.edit(
                 text=MessageText, reply_markup=InlineKeyboardMarkup(markup)
@@ -315,13 +315,13 @@ async def files_handler(c: Client, m: Message):
         elif len(queueDB.get(user_id)["videos"]) > 100:
             markup = await makeButtons(c, m, queueDB)
             await editable.text(
-                "Max 100 videos allowed", reply_markup=InlineKeyboardMarkup(markup)
+                "Max 69 videos allowed", reply_markup=InlineKeyboardMarkup(markup)
             )
 
     elif user.merge_mode == 2:
         editable = await m.reply_text("Please wait...", quote=True)
         MessageText = (
-            "Okay,\nNow Send Me Some More <u>Audios</u> or Press **Mᴇʀɢᴇ 🧪** Button!"
+            "<b>Nice, now Send all the <u>Audios</u> To Merge Them Into a Single File!!</b>"
         )
 
         if queueDB.get(user_id, None) is None:
@@ -330,7 +330,7 @@ async def files_handler(c: Client, m: Message):
             queueDB.get(user_id)["videos"].append(m.id)
             # if len(queueDB.get(user_id)["videos"])==1:
             reply_ = await editable.edit(
-                text="Now, Send all the audios you want to merge",
+                text="<i>Now, Send all the audios you want to merge.</i>",
                 reply_markup=InlineKeyboardMarkup(
                     bMaker.makebuttons(["Cancel"], ["cancel"])
                 ),
@@ -359,14 +359,14 @@ async def files_handler(c: Client, m: Message):
     elif user.merge_mode == 3:
 
         editable = await m.reply_text("Please wait...", quote=True)
-        MessageText = "Okay,\nNow Send Me Some More <u>Subtitles</u> or Press **Merge 🧪** Button!"
+        MessageText = "<b>Nice, now Send me all the <u>Subtitles</u> to Merge Them Into a Single File!!</b>"
         if queueDB.get(user_id, None) is None:
             queueDB.update({user_id: {"videos": [], "subtitles": [], "audios": []}})
         if len(queueDB.get(user_id)["videos"]) == 0:
             queueDB.get(user_id)["videos"].append(m.id)
             # if len(queueDB.get(user_id)["videos"])==1:
             reply_ = await editable.edit(
-                text="Now, Send All The Subtitles You Want To Merge",
+                text="<i>Now, Send All The Subtitles You Want To Merge.<i>",
                 reply_markup=InlineKeyboardMarkup(
                     bMaker.makebuttons(["Cancel"], ["cancel"])
                 ),
@@ -405,13 +405,13 @@ async def photo_handler(c: Client, m: Message):
         del user
         return
     thumbnail = m.photo.file_id
-    msg = await m.reply_text("Saving Thumbnail. . . .", quote=True)
+    msg = await m.reply_text("<i>Saving Thumbnail. . . .</i>", quote=True)
     user.thumbnail = thumbnail
     user.set()
     # await database.saveThumb(m.from_user.id, thumbnail)
     LOCATION = f"downloads/{m.from_user.id}_thumb.jpg"
     await c.download_media(message=m, file_name=LOCATION)
-    await msg.edit_text(text="✅ Custom Thumbnail Saved!")
+    await msg.edit_text(text="<i>✅ Custom Thumbnail Saved!</i>")
     del user
 
 
@@ -452,16 +452,16 @@ async def media_extracter(c: Client, m: Message):
 @mergeApp.on_message(filters.command(["help"]) & filters.private)
 async def help_msg(c: Client, m: Message):
     await m.reply_text(
-        text="""**<u>Follow These Steps</u>:
+        text="""「 <b>Follow These STEPS</b> 」
 
-1) Send me the custom thumbnail (optional).
-2) Send two or more Your Videos Which you want to merge
-3) After sending all files select merge options
-4) Select the upload mode.
-5) Select rename if you want to give custom file name else press default**""",
+1) <i>Send me the custom thumbnail (optional)</i>
+2) <i>Send two or more Your Videos Which you want to merge</i>
+3) <i>After sending all files select merge options</i>
+4) <i>Select the upload mode</i>
+5) <i>Select rename if you want to give custom file name else press default</i>""",
         quote=True,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("Close 🔐", callback_data="close")]]
+            [[InlineKeyboardButton("• Close •", callback_data="close")]]
         ),
     )
 
@@ -470,7 +470,7 @@ async def help_msg(c: Client, m: Message):
 async def about_handler(c: Client, m: Message):
     await m.reply_text(
         text="""
-**What's New:**
+
 __• Ban and Unban Users.__
 __• Extract Subtitles and Audio From Telegram Files.__
 __• Merge Video, Auido and Subtitle Files.__
