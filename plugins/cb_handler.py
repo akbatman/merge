@@ -162,7 +162,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
 
         if "NO" in cb.data:
             new_file_name = (
-                f"downloads/{str(cb.from_user.id)}/default.mkv"
+                f"downloads/{str(cb.from_user.id)}/हाँ, मैं अलसी मानुष हूँ, तो क्या? 🥲.mkv"
             )
             if user.merge_mode == 1:
                 await mergeNow(c, cb, new_file_name)
