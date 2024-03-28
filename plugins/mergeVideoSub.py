@@ -32,7 +32,7 @@ from pyrogram.types import CallbackQuery, Message
 async def mergeSub(c: Client, cb: CallbackQuery, new_file_name: str):
     omess = cb.message.reply_to_message
     vid_list = list()
-    await cb.message.edit("⭕ Processing...")
+    await cb.message.edit("💫")
     duration = 0
     video_mess = queueDB.get(cb.from_user.id)["videos"][0]
     list_message_ids: list = queueDB.get(cb.from_user.id)["subtitles"]
