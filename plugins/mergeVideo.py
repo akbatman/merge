@@ -25,7 +25,7 @@ async def mergeNow(c: Client, cb: CallbackQuery, new_file_name: str):
     vid_list = list()
     sub_list = list()
     sIndex = 0
-    await cb.message.edit("⭕ Processing...")
+    await cb.message.edit("💫")
     duration = 0
     list_message_ids = queueDB.get(cb.from_user.id)["videos"]
     list_message_ids.sort()
