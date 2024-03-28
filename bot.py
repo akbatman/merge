@@ -140,6 +140,9 @@ async def stats_handler(c: Client, m: Message):
         f"<b>├🖥 CPU : {cpuUsage}%</b>\n"
         f"<b>├⚙️ RAM : {memory}%</b>\n"
         f"<b>╰💿 DISK : {disk}%</b>"
+	    reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("• Close •", callback_data="close")]]
+        ),
     )
     await m.reply_text(text=stats, quote=True)
 
