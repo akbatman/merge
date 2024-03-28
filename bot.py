@@ -292,7 +292,7 @@ async def files_handler(c: Client, m: Message):
 
             if len(queueDB.get(user_id)["videos"]) == 1:
                 reply_ = await editable.edit(
-                    "<b><u>‣ Please send another 'Video' to continue the merging process.</u></b>",
+                    "<b><i>‣ Please send another 'Video' to continue the merging process.</i></b>",
                     reply_markup=InlineKeyboardMarkup(
                         bMaker.makebuttons(["Cancel"], ["cancel"])
                     ),
