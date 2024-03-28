@@ -68,7 +68,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
             return
         UPLOAD_TO_DRIVE.update({f"{cb.from_user.id}": True})
         await cb.message.edit(
-            text="<b>Okay I'll upload to the drive</b>\n<i>Would you like me to rename it to something, or the File name will be File merged by Imax-Movies.mkv</i>",
+            text="<b>Okay I'll upload to the drive</b>\n\n<b>The new file is currently named as</b> <i>'File merged by Imax-Movies'</i>.\n<b>Would you like to rename it?</b>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -100,7 +100,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "document":
         UPLOAD_AS_DOC.update({f"{cb.from_user.id}": True})
         await cb.message.edit(
-            text="🪧<b> • Would you like me to rename it to something, or the File name will be</b> <i>File merged by Imax-Movies.mkv</i>",
+            text="🪧<b> • The new file is currently named as</b> <i>'File merged by Imax-Movies'</i>.\n<b>Would you like to rename it?</b>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
