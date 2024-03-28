@@ -46,8 +46,8 @@ async def mergeNow(c: Client, cb: CallbackQuery, new_file_name: str):
     for i in await c.get_messages(
 chat_id=cb.from_user.id, message_ids=list_message_ids ):
         media = i.video or i.document
-        await cb.message.edit(f"📥 Starting Download of ... `{media.file_name}`")
-        LOGGER.info(f"📥 Starting Download of ... {media.file_name}")
+        await cb.message.edit(f"📥 Starting Download of ... <i>{media.file_name}</i>")
+        LOGGER.info(f"📥 Starting Download of ... <i>{media.file_name}</i>")
         await asyncio.sleep(5)
         file_dl_path = None
         sub_dl_path = None
@@ -63,8 +63,8 @@ chat_id=cb.from_user.id, message_ids=list_message_ids ):
             n+=1
             if gDict[cb.message.chat.id] and cb.message.id in gDict[cb.message.chat.id]:
                 return
-            await cb.message.edit(f"Downloaded Sucessfully ... `{media.file_name}`")
-            LOGGER.info(f"Downloaded Sucessfully ... {media.file_name}")
+            await cb.message.edit(f"Downloaded Sucessfully ... <i>{media.file_name}</i>")
+            LOGGER.info(f"Downloaded Sucessfully ... <i>{media.file_name}</i>")
             await asyncio.sleep(5)
         except UnknownError as e:
             LOGGER.info(e)
@@ -130,7 +130,7 @@ chat_id=cb.from_user.id, message_ids=list_message_ids ):
     file_size = os.path.getsize(merged_video_path)
     os.rename(merged_video_path, new_file_name)
     await cb.message.edit(
-        f"🔄 Renamed Merged Video to\n <code>{new_file_name.rsplit('/',1)[-1]}</code>"
+        f"🔄 Renamed Merged Video to\n <i>{new_file_name.rsplit('/',1)[-1]}</i>"
     )
     await asyncio.sleep(3)
     merged_video_path = new_file_name
