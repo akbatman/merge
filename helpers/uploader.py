@@ -36,7 +36,7 @@ async def uploadVideo(
                     width=width,
                     duration=duration,
                     thumb=video_thumbnail,
-                    caption=f"╭ <i>{merged_video_path.rsplit('/',1)[-1]}</i>\n│\n • <i>total files: {all}</i>\n│\n╰─┈\n<b>user:</b> {cb.from_user.mention}",
+                    caption=f"╭ <i>{merged_video_path.rsplit('/',1)[-1]}</i>\n│\n • <i>total files: {all}</i>\n│\n╰─┈ <b>user:</b> {cb.from_user.mention}",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
                         f"<b>〘 Status: 📤 Uploading to Telegram 〙</b>\n\n<b>📁 Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
@@ -49,7 +49,7 @@ async def uploadVideo(
                     chat_id=int(LOGCHANNEL),
                     document=merged_video_path,
                     thumb=video_thumbnail,
-                    caption=f"╭ <i>{merged_video_path.rsplit('/',1)[-1]}</i>\n│\n • <i>total files: {all}</i>\n│\n╰─┈<b>user:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    caption=f"╭ <i>{merged_video_path.rsplit('/',1)[-1]}</i>\n│\n • <i>total files: {all}</i>\n│\n╰─┈ <b>user:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
                         f"<b>〘 Status: 📤 Uploading to Telegram 〙</b>\n\n<b>📁 Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
@@ -105,7 +105,7 @@ async def uploadVideo(
                 media = sent_.video or sent_.document
                 await sent_.copy(
                     chat_id=int(LOGCHANNEL),
-                    caption=f"╭ <i>{media.file_name}</i>\n│\n • <i>total files: {all}</i>\n│\n╰─┈<b>user:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    caption=f"╭ <i>{media.file_name}</i>\n│\n • <i>total files: {all}</i>\n│\n╰─┈ <b>user:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                 )
 
 
@@ -136,7 +136,7 @@ async def uploadFiles(
                 media = sent_.video or sent_.document
                 await sent_.copy(
                     chat_id=int(LOGCHANNEL),
-                    caption=f"╭ <i>{media.file_name}<i>\n│\n • <i>total files: {all}</i>\n│ \n╰─┈<b>Extracted by:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    caption=f"╭ <i>{media.file_name}<i>\n│\n • <i>total files: {all}</i>\n│ \n╰─┈ <b>Extracted by:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                 )
     except:
         1    
