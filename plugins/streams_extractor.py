@@ -20,7 +20,7 @@ async def streamsExtractor(c: Client, cb:CallbackQuery ,media_mid, exAudios=Fals
     try:
         if (omess.video or omess.document):
             media = omess.video or omess.document
-            LOGGER.info(f'Starting Download: {media.file_name}')
+            LOGGER.info(f'Starting Download: <i>{media.file_name}</i>')
     except Exception as e:
         LOGGER.error(f"Download failed: Unable to find media {e}")
         return
@@ -37,8 +37,8 @@ async def streamsExtractor(c: Client, cb:CallbackQuery ,media_mid, exAudios=Fals
         )
         if gDict[cb.message.chat.id] and cb.message.id in gDict[cb.message.chat.id]:
             return
-        await cb.message.edit(f"Downloaded Sucessfully ... `{media.file_name}`")
-        LOGGER.info(f"Downloaded Sucessfully ... {media.file_name}")
+        await cb.message.edit(f"Downloaded Sucessfully ... <i>{media.file_name}</i>")
+        LOGGER.info(f"Downloaded Sucessfully ... <i>{media.file_name}</i>")
         await asyncio.sleep(5)
     except UnknownError as e:
         LOGGER.info(e)
