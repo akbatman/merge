@@ -94,7 +94,7 @@ async def loginHandler(c: Client, m: Message):
     if user.user_id == int(Config.OWNER):
         user.allowed = True
     if user.allowed:
-        await m.reply_text(text=f"<b>You Already have the access⚡ to me!!</b>", quote=True)
+        await m.reply_text(text=f"<b>🌚 You Already have the access to use me!!</b>", quote=True)
     else:
         try:
             passwd = m.text.split(" ", 1)[1]
@@ -104,11 +104,11 @@ async def loginHandler(c: Client, m: Message):
         if passwd == Config.PASSWORD:
             user.allowed = True
             await m.reply_text(
-                text=f"<b>Access Granted ✅,</b>\n <i>⚡ Now you can use my Powers!!</i>", quote=True
+                text=f"<b>✅ Access Granted!!,</b>\n <i>⚡ Now you can use my Powers!!</i>", quote=True
             )
         else:
             await m.reply_text(
-                text=f"**Login failed ❌,**\n  🛡️ Unfortunately you can't use me\n\nContact: @{Config.USERNAME}",
+                text=f"**❌ Login failed,**\n 🛡️ Unfortunately!!, you can't use me...\n\nContact: @{Config.USERNAME}",
                 quote=True,
             )
     user.set()
@@ -196,7 +196,7 @@ async def start_handler(c: Client, m: Message):
     if m.from_user.id != int(Config.OWNER):
         if user.allowed is False:
             res = await m.reply_text(
-                text=f"**Hello,** __{m.from_user.first_name}__\n\n 🛡️ Unfortunately you can't use me!!\n\n**Contact: @{Config.USERNAME}** ",
+                text=f"**Hello,** __{m.from_user.first_name}__\n\n 🛡️ Unfortunately!!, you can't use me...\n\n**Contact: @{Config.USERNAME}** ",
                 quote=True,
             )
             return
@@ -204,7 +204,7 @@ async def start_handler(c: Client, m: Message):
         user.allowed = True
         user.set()
     res = await m.reply_text(
-        text=f"<b>Hey</b> {m.from_user.first_name},\n\n\This is Popka \n\n<i>➻ I'm a video/File Merger Bot. I can merge Multiple Files and Upload them on Telegram and Drive.</i>\n───────────────────\n**Owner: @{Config.USERNAME}** ",
+        text=f"<b>Hey</b> {m.from_user.first_name},\n\nThis is puchka \n\n<i>➻ I'm a video/File Merger Bot. I can merge Multiple Files and Upload them on Telegram and Drive very seamlessly.</i>\n───────────────────\n**Owner: @{Config.USERNAME}** ",
         quote=True,
     )
     del user
@@ -219,7 +219,7 @@ async def files_handler(c: Client, m: Message):
     if user_id != int(Config.OWNER):
         if user.allowed is False:
             res = await m.reply_text(
-                text=f"**Hello,** __{m.from_user.first_name}__\n\n 🛡️ Unfortunately you can't use me!!\n\n**Contact: @{Config.USERNAME}** ",
+                text=f"**Hello,** __{m.from_user.first_name}__\n\n 🛡️ Unfortunately!!, you can't use me...\n\n**Contact: @{Config.USERNAME}** ",
                 quote=True,
             )
             return
@@ -274,8 +274,8 @@ async def files_handler(c: Client, m: Message):
                 quote=True,
             )
             return
-        editable = await m.reply_text("🚀", quote=True)
-        MessageText = "<b>File added!</b>\n<i>now add another Video</i> or Press <b>🧬 Merge Button!</b>"
+        editable = await m.reply_text("🎗️", quote=True)
+        MessageText = "<b>‣ File Added!,</b>\n<i>To continue process:</i>\n<i>- Add another video</i>\n<i>- Press </i><b>"🧬 Merge Button"</b> <i>to start merging the files.</i>"
 
         if queueDB.get(user_id, None) is None:
             queueDB.update({user_id: {"videos": [], "subtitles": [], "audios": []}})
