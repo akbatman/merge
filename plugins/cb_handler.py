@@ -68,7 +68,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
             return
         UPLOAD_TO_DRIVE.update({f"{cb.from_user.id}": True})
         await cb.message.edit(
-            text="<b>Okay I'll upload to the drive</b>\n\n<b>The new file is currently named as</b> <i>'File merged by Imax-Movies'</i>.\n<b>Would you like to rename it?</b>",
+            text="<b>Okay I'll upload to the drive</b>\n\n<b><i>‣ Would you like to 'Rename' it, or the File name would be 'Default'.</i></b>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -84,12 +84,12 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "to_telegram":
         UPLOAD_TO_DRIVE.update({f"{cb.from_user.id}": False})
         await cb.message.edit(
-            text="👀 • In what format would you like the file uploaded.?",
+            text="<b>‣ In which format, would you like the new File to be Uploaded.?</b>\n<i>- as a 'Video' or as a 'Document'</i>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton("🖼️ Video", callback_data="video"),
-                        InlineKeyboardButton("📁 File", callback_data="document"),
+                        InlineKeyboardButton("📁 Document", callback_data="document"),
                     ],
                     [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
                 ]
@@ -100,7 +100,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "document":
         UPLOAD_AS_DOC.update({f"{cb.from_user.id}": True})
         await cb.message.edit(
-            text="🪧<b> • The new file is currently named as</b> <i>'File merged by Imax-Movies'</i>.\n<b>Would you like to rename it?</b>",
+            text="<b>‣ Would you like to <i>'Rename'</i> it, or the File name would be <i>'Default'.</i></b>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -116,7 +116,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "video":
         UPLOAD_AS_DOC.update({f"{cb.from_user.id}": False})
         await cb.message.edit(
-            text="🪧<b> • Would you like me to rename it to something, or the File name will be</b> <i>File merged by Imax-Movies.mkv</i>",
+            text="<b>‣ Would you like to <i>'Rename'</i> it, or the File name would be <i>'Default'.</i></b>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -146,7 +146,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
         user = UserSettings(cb.from_user.id, cb.from_user.first_name)
         if "YES" in cb.data:
             await cb.message.edit(
-                "Current filename: <i>File merged by Imax-Movies.mkv</i>\n\nSend me new file name without extension: You have 60 Second"
+                "Current filename: <i>default</i>\n\nSend me new file name without extension: You have 60 Second"
             )
             res: Message = await c.listen(chat_id=cb.message.chat.id, filters=filters.text, listener_type=ListenerTypes.MESSAGE, timeout=120, user_id=cb.from_user.id)
             if res.text:
@@ -162,7 +162,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
 
         if "NO" in cb.data:
             new_file_name = (
-                f"downloads/{str(cb.from_user.id)}/File merged by Imax-Movies.mkv"
+                f"downloads/{str(cb.from_user.id)}/default.mkv"
             )
             if user.merge_mode == 1:
                 await mergeNow(c, cb, new_file_name)
@@ -300,7 +300,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
         sIndex = int(cb.data.split(sep="_")[1])
         vMessId = queueDB.get(cb.from_user.id)["videos"][sIndex]
         rmess = await cb.message.edit(
-            text=f"Send me a subtitle file, you have 1 minute",
+            text=f"Send me a subtitle file, you have 60 second",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
