@@ -274,7 +274,7 @@ async def files_handler(c: Client, m: Message):
                 quote=True,
             )
             return
-        editable = await m.reply_text("Pʟᴇᴀꜱᴇ Wᴀɪᴛ  ...", quote=True)
+        editable = await m.reply_text("🚀", quote=True)
         MessageText = "**Noice,**\n__Now send me Another Video File,\n or Press **Merge 🧪** Button!"
 
         if queueDB.get(user_id, None) is None:
