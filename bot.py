@@ -469,7 +469,7 @@ async def help_msg(c: Client, m: Message):
 @mergeApp.on_message(filters.command(["about"]) & filters.private)
 async def about_handler(c: Client, m: Message):
     await m.reply_text(
-        text="""<b>❪ About Bot ❫</b>
+        text="""<b>❪ <u>About this Bot</u> ❫</b>
 - - - - - - - - - - - - - - - - - - - - - - - - - - -
 <i>• Custom Thumbnails</i>
 <i>• Preserves Metadata</i>
