@@ -469,20 +469,17 @@ async def help_msg(c: Client, m: Message):
 @mergeApp.on_message(filters.command(["about"]) & filters.private)
 async def about_handler(c: Client, m: Message):
     await m.reply_text(
-        text="""
-
-__• Ban and Unban Users.__
-__• Extract Subtitles and Audio From Telegram Files.__
-__• Merge Video, Auido and Subtitle Files.__
-__• Upload to drive using your own config file.__
-__• Merged file preserved All the meta of First file you send. (i.e. audiotracks, subtitles, etc)__
+        text="""<b>❪ About Bot ❫</b>
 - - - - - - - - - - - - - - - - - - - - - - - - - - -
-**Features:**
-__• Merge Upto 20 files in a Row.__
-__• upload as Document or Video Format.__
-__• Custom Thumbnail Support.__
-__• User only Get Access through Passcode.__
-__• Owner can Broadcast Message to Users.__
+<i>• Custom Thumbnails</i>
+<i>• Preserves Metadata</i>
+<i>• Access through Passcode</i>
+<i>• Direct Drive Upload (Config)</i>
+<i>• Extract Audio/Subtitles from File</i>
+<i>• Merge Up to 20 (Video/Audio/Docs)</i>
+<i>• Upload as Document or Video Format</i>
+──────────────────────────
+<i>Change your setting from.. /settings</i>
                     """,
         quote=True,
         reply_markup=InlineKeyboardMarkup(
@@ -490,7 +487,7 @@ __• Owner can Broadcast Message to Users.__
                 [InlineKeyboardButton("• Channel •", url="https://t.me/Anaavaran"),
                 InlineKeyboardButton("• Owner •", url="https://t.me/itsmeflashh")
                    ],[ 
-	       InlineKeyboardButton("• Close •", callback_data="close")],
+	       InlineKeyboardButton("Close", callback_data="close")],
             ]
         ),
     )
