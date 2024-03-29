@@ -454,11 +454,13 @@ async def help_msg(c: Client, m: Message):
     await m.reply_text(
         text="""ㄖ <b><u>Follow These STEPS</u> :</b>
 - - - - - - - - - - - - - - - - - - - - - - - - - - -
-<i>• Send me the custom thumbnail (optional)</i>
-<i>• Send two or more Your Videos Which you want to merge.</i>
-<i>• After sending all files select merge options.</i>
-<i>• Select the upload mode.</i>
-<i>• Select rename if you want to give custom file name else press default.</i>""",
+<b>• Send me the custom thumbnail</b> <i>(optional)</i>
+<b>• Send two or more Your Videos Which you want to merge.</b>
+<b>• After sending all files select merge options.</b>
+<b>• Select the upload mode.</b>
+<b>• Select rename if you want to give custom file name else press default.</b>
+───────────────────
+<i>Check /about for more..</i>""",
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("• Close •", callback_data="close")]]
@@ -471,14 +473,14 @@ async def about_handler(c: Client, m: Message):
     await m.reply_text(
         text="""<b>❪ <u>About this Bot</u> ❫</b>
 - - - - - - - - - - - - - - - - - - - - - - - - - - -
-<i>• Custom Thumbnails</i>
-<i>• Preserves Metadata</i>
-<i>• Access through Passcode</i>
-<i>• Direct Drive Upload (Config)</i>
-<i>• Extract Audio/Subtitles from File</i>
-<i>• Merge Up to 20 (Video/Audio/Docs)</i>
-<i>• Upload as Document or Video Format</i>
-──────────────────────────
+<b>• Custom Thumbnails</b>
+<b>• Preserves Metadata</b>
+<b>• Access through Passcode</b>
+<b>• Direct Drive Upload</b> <i>(Config)</i>
+<b>• Extract Audio/Subtitles from File</b>
+<b>• Merge Up to 20</b> <i>(Video/Audio/Docs)</i>
+<b>• Upload as Document or Video Format</b>
+──────────────────────
 <i>Change your setting from.. /settings</i>
                     """,
         quote=True,
