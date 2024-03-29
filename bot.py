@@ -204,7 +204,7 @@ async def start_handler(c: Client, m: Message):
         user.allowed = True
         user.set()
     res = await m.reply_text(
-        text=f"<b>нєу</b> {m.from_user.first_name},\n\n<b>➻<i> I'm your file management guru! Merging videos, audio, and documents, and uploading them to Telegram & Drive is my superpower..</i></b>\n───────────────────\n<i>Check /about for more..</i> ",
+        text=f"<b>нєу</b> {m.from_user.first_name},\n\n<b>➻<i> I'm your file management guru! Merging videos, audio, and documents, and uploading them to Telegram & Drive is my superpower..</i></b>\n───────────────────\n<i>More details... /help</i> ",
         quote=True,
     )
     del user
