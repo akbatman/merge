@@ -8,7 +8,7 @@ from helpers.utils import UserSettings
 @mergeApp.on_message(filters.command(["settings"]))
 async def f1(c: mergeApp, m: Message):
     # setUserMergeMode(uid=m.from_user.id,mode=1)
-    replay = await m.reply(text="Please wait", quote=True)
+    replay = await m.reply(text="💫", quote=True)
     usettings = UserSettings(m.from_user.id, m.from_user.first_name)
     await userSettings(
         replay, m.from_user.id, m.from_user.first_name, m.from_user.last_name, usettings
