@@ -61,7 +61,7 @@ class Progress:
         if self.is_cancelled:
             LOGGER.info("stopping ")
             await self._mess.edit(
-                f"<b>Cancelled!!</b> \n\n `{ud_type}` ({humanbytes(total)})"
+                f"<b>Cancelled! at</b> \n\n <i>{ud_type}</i> ({humanbytes(total)})"
             )
             await self._client.stop_transmission()
 
