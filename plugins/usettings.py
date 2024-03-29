@@ -43,7 +43,7 @@ async def userSettings(
         uSettingsMessage = f"""
 <b>❰ <u>User Specific Settings</u> ❱</b>
 
-<b>🪪 • ID:</b> <i>{usettings.user_id}</i>
+<b>🪪 • ID:</b> <code>{usettings.user_id}</code>
 {'🚫' if usettings.banned else '🫡'}<b> • Ban Status:</b> <i>{usettings.banned}</i>
 {'⚡' if usettings.allowed else '❗'}<b> • Allowed:</b> <i>{usettings.allowed}</i>
 {'✅' if usettings.edit_metadata else '❌'}<b> • Edit Metadata:</b> <i>{usettings.edit_metadata}</i>
