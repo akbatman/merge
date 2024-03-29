@@ -204,7 +204,7 @@ async def start_handler(c: Client, m: Message):
         user.allowed = True
         user.set()
     res = await m.reply_text(
-        text=f"<b>Hey</b> {m.from_user.first_name},\n\nThis is puchka \n\n<i>➻ I'm a video/File Merger Bot. I can merge Multiple Files and Upload them on Telegram and Drive very seamlessly.</i>\n───────────────────\n**Owner: @{Config.USERNAME}** ",
+        text=f"<b>нєу</b> {m.from_user.first_name},\n\n๏ This is puchka \n\n<i>➻ I am a video/File Merger Bot that seamlessly merges multiple files and uploads them to Telegram and Drive.</i>\n───────────────────\n**Owner: @{Config.USERNAME}** ",
         quote=True,
     )
     del user
@@ -275,7 +275,7 @@ async def files_handler(c: Client, m: Message):
             )
             return
         editable = await m.reply_text("🎗️", quote=True)
-        MessageText = "<i>~File Added!,</i>\n<b>‣ To continue process:</b>\n<i>- Add another video</i>\n<i>- Press </i><b>'🧬 Merge'</b> <i>Button to start merging the files.</i>"
+        MessageText = "<i>~File Added to the list!,</i>\n<b>‣ To continue the merging process:</b>\n<i>- Add another video</i>\n<i>- Press </i><b>'🧬 Merge'</b> <i>Button to start merging the files.</i>"
 
         if queueDB.get(user_id, None) is None:
             queueDB.update({user_id: {"videos": [], "subtitles": [], "audios": []}})
