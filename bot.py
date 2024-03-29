@@ -453,12 +453,12 @@ async def media_extracter(c: Client, m: Message):
 async def help_msg(c: Client, m: Message):
     await m.reply_text(
         text="""「 <b>Follow These STEPS</b> 」
-
-1) <i>Send me the custom thumbnail (optional)</i>
-2) <i>Send two or more Your Videos Which you want to merge</i>
-3) <i>After sending all files select merge options</i>
-4) <i>Select the upload mode</i>
-5) <i>Select rename if you want to give custom file name else press default</i>""",
+- - - - - - - - - - - - - - - - - - - - - - - - - - -
+<i>• Send me the custom thumbnail (optional)</i>
+<i>• Send two or more Your Videos Which you want to merge.</i>
+<i>• After sending all files select merge options.</i>
+<i>• Select the upload mode.</i>
+<i>• Select rename if you want to give custom file name else press default.</i>""",
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("• Close •", callback_data="close")]]
