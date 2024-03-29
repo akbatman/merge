@@ -460,7 +460,7 @@ async def help_msg(c: Client, m: Message):
 <b>• Select the upload mode.</b>
 <b>• Select rename if you want to give custom file name else press default.</b>
 ───────────────────
-<i>Check /about for more..</i>""",
+<i>Change your setting from /settings</i>""",
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Close", callback_data="close")]]
@@ -480,8 +480,8 @@ async def about_handler(c: Client, m: Message):
 <b>• Extract Audio/Subtitles from File</b>
 <b>• Merge Up to 20</b> <i>(Video/Audio/Docs)</i>
 <b>• Upload as Document or Video Format</b>
-──────────────────────
-<i>Change your setting from.. /settings</i>
+───────────────────
+<i>Check Bot Stats /stats</i>
                     """,
         quote=True,
         reply_markup=InlineKeyboardMarkup(
