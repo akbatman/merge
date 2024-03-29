@@ -478,7 +478,7 @@ __• Upload to drive using your own config file.__
 __• Merged file preserved All the meta of First file you send. (i.e. audiotracks, subtitles, etc)__
 - - - - - - - - - - - - - - - - - - - - - - - - - - -
 **Features:**
-__• Merge Upto 100 files in a Row.__
+__• Merge Upto 15 files in a Row.__
 __• upload as Document or Video Format.__
 __• Custom Thumbnail Support.__
 __• User only Get Access through Passcode.__
