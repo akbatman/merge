@@ -281,7 +281,7 @@ async def files_handler(c: Client, m: Message):
             queueDB.update({user_id: {"videos": [], "subtitles": [], "audios": []}})
         if (
             len(queueDB.get(user_id)["videos"]) >= 0
-            and len(queueDB.get(user_id)["videos"]) < 69
+            and len(queueDB.get(user_id)["videos"]) < 20
         ):
             queueDB.get(user_id)["videos"].append(m.id)
             queueDB.get(m.from_user.id)["subtitles"].append(None)
@@ -305,17 +305,17 @@ async def files_handler(c: Client, m: Message):
                 await c.delete_messages(
                     chat_id=m.chat.id, message_ids=replyDB.get(user_id)
                 )
-            if len(queueDB.get(user_id)["videos"]) == 69:
+            if len(queueDB.get(user_id)["videos"]) == 20:
                 MessageText = "Okay, Now Just Press <b>🧬 Merge** Button</b>"
             markup = await makeButtons(c, m, queueDB)
             reply_ = await editable.edit(
                 text=MessageText, reply_markup=InlineKeyboardMarkup(markup)
             )
             replyDB.update({user_id: reply_.id})
-        elif len(queueDB.get(user_id)["videos"]) > 69:
+        elif len(queueDB.get(user_id)["videos"]) > 20:
             markup = await makeButtons(c, m, queueDB)
             await editable.text(
-                "Max 69 videos allowed", reply_markup=InlineKeyboardMarkup(markup)
+                "Max 20 videos allowed", reply_markup=InlineKeyboardMarkup(markup)
             )
 
     elif user.merge_mode == 2:
@@ -478,7 +478,7 @@ __• Upload to drive using your own config file.__
 __• Merged file preserved All the meta of First file you send. (i.e. audiotracks, subtitles, etc)__
 - - - - - - - - - - - - - - - - - - - - - - - - - - -
 **Features:**
-__• Merge Upto 15 files in a Row.__
+__• Merge Upto 20 files in a Row.__
 __• upload as Document or Video Format.__
 __• Custom Thumbnail Support.__
 __• User only Get Access through Passcode.__
