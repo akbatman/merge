@@ -54,10 +54,10 @@ class MergeBot(Client):
     def start(self):
         super().start()
         try:
-            self.send_message(chat_id=int(Config.LOGCHANNEL), text="<b>Robot has been Started Successfully 🥁</b>")
+            self.send_message(chat_id=int(Config.LOGCHANNEL), text="<b>Robot has been Awaken Successfully 🥁</b>")
         except Exception as err:
             LOGGER.error("Boot Alert Failed! Please Start Bot In PM")
-        return LOGGER.info("Robot has been Started Successfully 🥁")
+        return LOGGER.info("Robot has been Awaken Successfully 🥁")
 
     def stop(self):
         super().stop()
