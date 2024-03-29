@@ -452,7 +452,7 @@ async def media_extracter(c: Client, m: Message):
 @mergeApp.on_message(filters.command(["help"]) & filters.private)
 async def help_msg(c: Client, m: Message):
     await m.reply_text(
-        text="""「 <b>Follow These STEPS</b> 」
+        text="""ㄖ <b><u>Follow These STEPS:</u></b>
 - - - - - - - - - - - - - - - - - - - - - - - - - - -
 <i>• Send me the custom thumbnail (optional)</i>
 <i>• Send two or more Your Videos Which you want to merge.</i>
