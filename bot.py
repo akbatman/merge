@@ -463,7 +463,7 @@ async def help_msg(c: Client, m: Message):
 <i>Check /about for more..</i>""",
         quote=True,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("• Close •", callback_data="close")]]
+            [[InlineKeyboardButton("Close", callback_data="close")]]
         ),
     )
 
