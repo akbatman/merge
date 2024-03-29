@@ -26,7 +26,7 @@ async def uploadVideo(
                     caption=f"╭ <i>{merged_video_path.rsplit('/',1)[-1]}</i>\n│\n • <i>total files: {all}</i>\n│\n╰─┈ <b>user:</b> {cb.from_user.mention}",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"<b>〘  Uploading to Telegram 〙</b>\n\n<b> Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
+                        f"<b>〘 Uploading to Telegram 〙</b>\n\n<b> Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
@@ -39,7 +39,7 @@ async def uploadVideo(
                     caption=f"╭ <i>{merged_video_path.rsplit('/',1)[-1]}</i>\n│\n • <i>total files: {all}</i>\n│\n╰─┈ <b>user:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"<b>〘  Uploading to Telegram 〙</b>\n\n<b> Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
+                        f"<b>〘 Uploading to Telegram 〙</b>\n\n<b> Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
