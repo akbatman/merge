@@ -275,7 +275,7 @@ async def files_handler(c: Client, m: Message):
             )
             return
         editable = await m.reply_text("🎗️", quote=True)
-        MessageText = "<i>~File Added to the list!,</i>\n<b>‣ To continue the merging process:</b>\n<i>- Add another video</i>\n<i>- Press </i><b>'🧬 Merge'</b> <i>Button to start merging the files.</i>"
+        MessageText = "<b>‣ To continue the merging process:</b>\n<i>- Add another video</i>\n<i>- Press </i><b>'🧬 Merge'</b> <i>Button to start merging the files.</i>"
 
         if queueDB.get(user_id, None) is None:
             queueDB.update({user_id: {"videos": [], "subtitles": [], "audios": []}})
