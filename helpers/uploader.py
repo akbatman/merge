@@ -1,16 +1,3 @@
-import asyncio
-import os
-import time
-
-from __init__ import LOGGER
-from bot import LOGCHANNEL, userBot
-from config import Config
-from pyrogram import Client
-from pyrogram.types import CallbackQuery, Message
-
-from helpers.display_progress import Progress
-
-
 async def uploadVideo(
     c: Client,
     cb: CallbackQuery,
@@ -39,7 +26,7 @@ async def uploadVideo(
                     caption=f"╭ <i>{merged_video_path.rsplit('/',1)[-1]}</i>\n│\n • <i>total files: {all}</i>\n│\n╰─┈ <b>user:</b> {cb.from_user.mention}",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"<b>〘 📤 Uploading to Telegram 〙</b>\n\n<b>📁 Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
+                        f"<b>〘  Uploading to Telegram 〙</b>\n\n<b> Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
@@ -52,16 +39,20 @@ async def uploadVideo(
                     caption=f"╭ <i>{merged_video_path.rsplit('/',1)[-1]}</i>\n│\n • <i>total files: {all}</i>\n│\n╰─┈ <b>user:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"<b>〘 📤 Uploading to Telegram 〙</b>\n\n<b>📁 Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
+                        f"<b>〘  Uploading to Telegram 〙</b>\n\n<b> Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
             if sent_ is not None:
+                # Integration point: Modify the caption and handle copying the message (optional)
+                caption = f"<b>{merged_video_path.rsplit('/', 1)[-1]}</b>\n\n • Total Files: {all}"  # Assuming 'all' represents the total files
+
+                # Optional: Copy the uploaded message to the user's chat
                 await c.copy_message(
                     chat_id=cb.message.chat.id,
                     from_chat_id=sent_.chat.id,
                     message_id=sent_.id,
-                    caption=f"<b>{merged_video_path.rsplit('/',1)[-1]}</b>",
+                    caption=caption,
                 )
                 # await sent_.delete()
     else:
@@ -80,7 +71,7 @@ async def uploadVideo(
                     caption=f"<b>{merged_video_path.rsplit('/',1)[-1]}</b>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"<b>〘 📤 Uploading to Telegram 〙</b>\n\n<b>📁 Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
+                        f"<b>〘  Uploading to Telegram 〙</b>\n\n<b> Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
@@ -89,55 +80,5 @@ async def uploadVideo(
                 sent_: Message = await c.send_document(
                     chat_id=cb.message.chat.id,
                     document=merged_video_path,
-                    thumb=video_thumbnail,
-                    caption=f"<b>{merged_video_path.rsplit('/',1)[-1]}</b>",
-                    progress=prog.progress_for_pyrogram,
-                    progress_args=(
-                        f"<b>〘 📤 Uploading to Telegram 〙</b>\n\n<b>📁 Name: </b><i>{merged_video_path.rsplit('/',1)[-1]}</i>",
-                        c_time,
-                    ),
-                )
-        except Exception as err:
-            LOGGER.info(err)
-            await cb.message.edit("Failed to upload")
-        if sent_ is not None:
-            if Config.LOGCHANNEL is not None:
-                media = sent_.video or sent_.document
-                await sent_.copy(
-                    chat_id=int(LOGCHANNEL),
-                    caption=f"╭ <i>{media.file_name}</i>\n│\n • <i>total files: {all}</i>\n│\n╰─┈ <b>user:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
-                )
 
-
-async def uploadFiles(
-    c: Client,
-    cb: CallbackQuery,
-    up_path,
-    n,
-    all
-):
-    try:
-        sent_ = None
-        prog = Progress(cb.from_user.id, c, cb.message)
-        c_time = time.time()
-        sent_: Message = await c.send_document(
-            chat_id=cb.message.chat.id,
-            document=up_path,
-            caption=f"<b>{up_path.rsplit('/',1)[-1]}</b>",
-            progress=prog.progress_for_pyrogram,
-            progress_args=(
-                f"<b>〘 📤 Uploading to Telegram 〙</b>\n\n<b>📁 Name: </b><i>{up_path.rsplit('/',1)[-1]}<i>",
-                c_time,
-                f"\n**Uploading: {n}/{all}**"
-            ),
-        )
-        if sent_ is not None:
-            if Config.LOGCHANNEL is not None:
-                media = sent_.video or sent_.document
-                await sent_.copy(
-                    chat_id=int(LOGCHANNEL),
-                    caption=f"╭ <i>{media.file_name}<i>\n│\n • <i>total files: {all}</i>\n│ \n╰─┈ <b>Extracted by:</b> <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
-                )
-    except:
-        1    
-    1
+                
