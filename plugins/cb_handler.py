@@ -115,8 +115,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
             ]
         ),
     )
-    return
-
+     return
     elif cb.data == "video":
     UPLOAD_AS_DOC.update({"f{cb.from_user.id}": False})
     await cb.message.edit(
