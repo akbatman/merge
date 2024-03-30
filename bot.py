@@ -129,25 +129,26 @@ async def stats_handler(c: Client, m: Message):
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = (
-        f"<b>╭「 💠 BOT STATISTICS 」</b>\n"
+        f"<b>╭「  BOT STATISTICS 」</b>\n"
         f"<b>│</b>\n"
         f"<b>├⏳ Bot Uptime : {currentTime}</b>\n"
-        f"<b>├💾 Total Disk Space : {total}</b>\n"
-        f"<b>├📀 Total Used Space : {used}</b>\n"
-        f"<b>├💿 Total Free Space : {free}</b>\n"
-        f"<b>├🔺 Total Upload : {sent}</b>\n"
-        f"<b>├🔻 Total Download : {recv}</b>\n"
-        f"<b>├🖥 CPU : {cpuUsage}%</b>\n"
+        f"<b>├ Total Disk Space : {total}</b>\n"
+        f"<b>├ Total Used Space : {used}</b>\n"
+        f"<b>├ Total Free Space : {free}</b>\n"
+        f"<b>├ Total Upload : {sent}</b>\n"
+        f"<b>├ Total Download : {recv}</b>\n"
+        f"<b>├ CPU : {cpuUsage}%</b>\n"
         f"<b>├⚙️ RAM : {memory}%</b>\n"
-        f"<b>╰💿 DISK : {disk}%</b>"
-	    markup = InlineKeyboardMarkup(
-    [
-        [InlineKeyboardButton("Close", callback_data="close_stats")]
-    ]
-)
+        f"<b>╰ DISK : {disk}%</b>")  # Closed parenthesis
 
-await m.reply_text(text=stats, reply_markup=markup, quote=True)
+    markup = InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton("Close", callback_data="close_stats")]
+        ]
     )
+
+    await m.reply_text(text=stats, reply_markup=markup, quote=True)
+
 
 
 @mergeApp.on_message(
