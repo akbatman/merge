@@ -35,21 +35,17 @@ async def uploadVideo(
         prog = Progress(cb.from_user.id, c, cb.message)
         async with userBot:
             if upload_mode is False:
-                c_time = time.time()
-                sent_: Message = await userBot.send_video(
-                    chat_id=int(LOGCHANNEL),
-                    video=merged_video_path,
-                    height=height,
-                    width=width,
-                    duration=duration,
-                    thumb=video_thumbnail,
-                    caption=f"`{merged_video_path.rsplit('/', 1)[-1]}`\n\nMerged using {file_count} files\n\nMerged by: {cb.from_user.mention}",
-                    progress=prog.progress_for_pyrogram,
-                    progress_args=(
-                        f"Uploading: `{merged_video_path.rsplit('/', 1)[-1]}`",
-                        c_time,
-                    ),
-                )
+    # Code for upload_mode False
+    sent_: Message = await userBot.send_document(  # Missing indentation
+        chat_id=int(LOGCHANNEL),
+        document=up_path,
+        caption=f"`{up_path.rsplit('/', 1)[-1]}`\n\n**Uploading: {n}/{all}**",
+        progress=prog.progress_for_pyrogram,
+        progress_args=(
+            f"Uploading: `{up_path.rsplit('/', 1)[-1]}`",
+            c_time,
+        ),
+    )
                 # ... rest of your code within the if block ...
             else:
                   c_time = time.time()
