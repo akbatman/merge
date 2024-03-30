@@ -48,7 +48,7 @@ async def uploadVideo(
     )
             else:
                   c_time = time.time()
-                sent_: Message = await userBot.send_document(
+       sent_: Message = await userBot.send_document(
                     chat_id=int(LOGCHANNEL),
                     document=merged_video_path,
                     thumb=video_thumbnail,
