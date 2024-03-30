@@ -140,8 +140,14 @@ async def stats_handler(c: Client, m: Message):
         f"<b>├🖥 CPU : {cpuUsage}%</b>\n"
         f"<b>├⚙️ RAM : {memory}%</b>\n"
         f"<b>╰💿 DISK : {disk}%</b>"
+	    markup = InlineKeyboardMarkup(
+    [
+        [InlineKeyboardButton("Close", callback_data="close_stats")]
+    ]
+)
+
+await m.reply_text(text=stats, reply_markup=markup, quote=True)
     )
-    await m.reply_text(text=stats, quote=True)
 
 
 @mergeApp.on_message(
