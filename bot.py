@@ -143,7 +143,7 @@ async def stats_handler(c: Client, m: Message):
 
     markup = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("Close", callback_data="close_stats")]
+            [InlineKeyboardButton("Close", callback_data="close")]
         ]
     )
 
