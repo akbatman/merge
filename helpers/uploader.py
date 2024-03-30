@@ -46,7 +46,6 @@ async def uploadVideo(
             c_time,
         ),
     )
-                # ... rest of your code within the if block ...
             else:
                   c_time = time.time()
                 sent_: Message = await userBot.send_document(
