@@ -128,7 +128,6 @@ async def uploadFiles(
             progress_args=(
                 f"<b>〘 Uploading to Telegramm - {n}/{all} 〙</b>\n\n<b>📁 Name:</b> <i>{up_path.rsplit('/',1)[-1]}</i>",
                 c_time,
-                f"\n**Uploading: {n}/{all}**"
             ),
         )
         if sent_ is not None:
