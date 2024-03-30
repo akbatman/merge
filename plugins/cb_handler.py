@@ -31,8 +31,6 @@ from plugins.usettings import userSettings
 
 @Client.on_callback_query()
 async def callback_handler(c: Client, cb: CallbackQuery):
-    #     await cb_handler.cb_handler(c, cb)
-    # async def cb_handler(c: Client, cb: CallbackQuery):
     if cb.data == "merge":
         await cb.message.edit(
             text="<b>‣ Where do you want me to Upload the new File.?\n<i>- Choose from 'TG' or 'Drive'</i></b>",
@@ -44,7 +42,10 @@ async def callback_handler(c: Client, cb: CallbackQuery):
                         ),
                         InlineKeyboardButton("☁️ to Drive", callback_data="to_drive"),
                     ],
-                    [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
+                    [
+                        InlineKeyboardButton("⬅️ Back", callback_data="back"),
+                        InlineKeyboardButton("• Cancel •", callback_data="cancel")
+                    ],
                 ]
             ),
         )
