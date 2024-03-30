@@ -83,20 +83,23 @@ async def callback_handler(c: Client, cb: CallbackQuery):
         return
 
     elif cb.data == "to_telegram":
-        UPLOAD_TO_DRIVE.update({f"{cb.from_user.id}": False})
-        await cb.message.edit(
-            text="<b>‣ In which format, would you like the new File to be Uploaded.?</b>\n<i>- as a 'Video' or as a 'Document'</i>",
-            reply_markup=InlineKeyboardMarkup(
+    UPLOAD_TO_DRIVE.update({f"{cb.from_user.id}": False})
+    await cb.message.edit(
+        text="<b>‣ In which format, would you like the new File to be Uploaded.?</b>\n<i>- as a 'Video' or as a 'Document'</i>",
+        reply_markup=InlineKeyboardMarkup(
+            [
                 [
-                    [
-                        InlineKeyboardButton("🖼️ Video", callback_data="video"),
-                        InlineKeyboardButton("📁 Document", callback_data="document"),
-                    ],
-                    [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
-                ]
-            ),
-        )
-        return
+                    InlineKeyboardButton("🖼️ Video", callback_data="video"),
+                    InlineKeyboardButton("📁 Document", callback_data="document"),
+                ],
+                [
+                    InlineKeyboardButton("⬅️ Back", callback_data="back"),
+                    InlineKeyboardButton("• Cancel •", callback_data="cancel")  
+                ],
+            ]
+        ),
+    )
+    return
 
     elif cb.data == "document":
         UPLOAD_AS_DOC.update({f"{cb.from_user.id}": True})
