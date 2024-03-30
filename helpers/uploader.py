@@ -39,7 +39,7 @@ async def uploadVideo(
                     caption=f"`{merged_video_path.rsplit('/',1)[-1]}`\n\nMerged by: {cb.from_user.mention}",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"Uploading: `{merged_video_path.rsplit('/',1)[-1]}`",
+                        f"<b>〘 Uploading to Telegramm - {n}/{all} 〙</b>\n\n<b>📁 Name:</b> <i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
@@ -52,7 +52,7 @@ async def uploadVideo(
                     caption=f"`{merged_video_path.rsplit('/',1)[-1]}`\n\nMerged by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"Uploading: `{merged_video_path.rsplit('/',1)[-1]}`",
+                        f"<b>〘 Uploading to Telegramm - {n}/{all} 〙</b>\n\n<b>📁 Name:</b> <i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
@@ -80,7 +80,7 @@ async def uploadVideo(
                     caption=f"<b>{merged_video_path.rsplit('/',1)[-1]}</b>",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"Uploading: `{merged_video_path.rsplit('/',1)[-1]}`",
+                        f"<b>〘 Uploading to Telegramm - {n}/{all} 〙</b>\n\n<b>📁 Name:</b> <i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
@@ -93,7 +93,7 @@ async def uploadVideo(
                     caption=f"`{merged_video_path.rsplit('/',1)[-1]}`",
                     progress=prog.progress_for_pyrogram,
                     progress_args=(
-                        f"Uploading: `{merged_video_path.rsplit('/',1)[-1]}`",
+                        f"<b>〘 Uploading to Telegramm - {n}/{all} 〙</b>\n\n<b>📁 Name:</b> <i>{merged_video_path.rsplit('/',1)[-1]}</i>",
                         c_time,
                     ),
                 )
@@ -126,7 +126,7 @@ async def uploadFiles(
             caption=f"`{up_path.rsplit('/',1)[-1]}`",
             progress=prog.progress_for_pyrogram,
             progress_args=(
-                f"Uploading: `{up_path.rsplit('/',1)[-1]}`",
+                f"<b>〘 Uploading to Telegramm - {n}/{all} 〙</b>\n\n<b>📁 Name:</b> <i>{up_path.rsplit('/',1)[-1]}</i>",
                 c_time,
                 f"\n**Uploading: {n}/{all}**"
             ),
