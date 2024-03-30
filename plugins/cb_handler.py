@@ -76,6 +76,8 @@ async def callback_handler(c: Client, cb: CallbackQuery):
                         InlineKeyboardButton("💈 Default", callback_data="rename_NO"),
                         InlineKeyboardButton(" 🏷️ Rename", callback_data="rename_YES"),
                     ],
+                    [
+                        InlineKeyboardButton("⬅️ Back", callback_data="back"),
                     [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
                 ]
             ),
@@ -92,6 +94,8 @@ async def callback_handler(c: Client, cb: CallbackQuery):
                         InlineKeyboardButton("🖼️ Video", callback_data="video"),
                         InlineKeyboardButton("📁 Document", callback_data="document"),
                     ],
+                    [
+                        InlineKeyboardButton("⬅️ Back", callback_data="back"),
                     [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
                 ]
             ),
@@ -108,6 +112,8 @@ async def callback_handler(c: Client, cb: CallbackQuery):
                         InlineKeyboardButton("💈 Default", callback_data="rename_NO"),
                         InlineKeyboardButton("🏷️ Rename", callback_data="rename_YES"),
                     ],
+                    [
+                        InlineKeyboardButton("⬅️ Back", callback_data="back"),
                     [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
                 ]
             ),
@@ -124,6 +130,8 @@ async def callback_handler(c: Client, cb: CallbackQuery):
                         InlineKeyboardButton("💈 Default", callback_data="rename_NO"),
                         InlineKeyboardButton("🏷️ Rename", callback_data="rename_YES"),
                     ],
+                    [
+                        InlineKeyboardButton("⬅️ Back", callback_data="back"),
                     [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
                 ]
             ),
