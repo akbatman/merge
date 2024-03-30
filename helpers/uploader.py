@@ -34,18 +34,21 @@ async def uploadVideo(
 
         prog = Progress(cb.from_user.id, c, cb.message)
         async with userBot:
-            if upload_mode is False:
-    # Code for upload_mode False
-                sent_: Message = await userBot.send_document(  # Missing indentation
-        chat_id=int(LOGCHANNEL),
-        document=up_path,
-        caption=f"`{up_path.rsplit('/', 1)[-1]}`\n\n**Uploading: {n}/{all}**",
-        progress=prog.progress_for_pyrogram,
-        progress_args=(
-            f"Uploading: `{up_path.rsplit('/', 1)[-1]}`",
-            c_time,
-        ),
-    )
+  if upload_mode is False:
+        try:
+            async with userBot:
+                c_time = time.time()
+                sent_: Message = await userBot.send_document(
+                    chat_id=int(LOGCHANNEL),
+                    document=merged_video_path,
+                    thumb=video_thumbnail,
+                    caption=f"`{merged_video_path.rsplit('/',1)[-1]}`\n\nMerged by: <a href='tg://user?id={cb.from_user.id}'>{cb.from_user.first_name}</a>",
+                    progress=prog.progress_for_pyrogram,
+                    progress_args=(
+                        f"Uploading: `{merged_video_path.rsplit('/',1)[-1]}`",
+                        c_time,
+                    ),
+                )
             else:
                   c_time = time.time()
        sent_: Message = await userBot.send_document(
