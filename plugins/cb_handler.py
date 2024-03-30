@@ -102,7 +102,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     return
 
     if cb.data == "document":
-    UPLOAD_AS_DOC.update({f"{cb.from_user.id}": True})
+     UPLOAD_AS_DOC.update({f"{cb.from_user.id}": True})
     await cb.message.edit(
         text="<b>‣ Would you like to <i>'Rename'</i> it, or the File name would be <i>'Default'.</i></b>",
         reply_markup=InlineKeyboardMarkup(
