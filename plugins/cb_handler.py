@@ -74,7 +74,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("💈 Default", callback_data="rename_NO"),
-                        InlineKeyboardButton(" 🏷️ Rename", callback_data="rename_YES"),
+                        InlineKeyboardButton("🏷️ Rename", callback_data="rename_YES"),
                     ],
                     [InlineKeyboardButton("• Cancel •", callback_data="cancel")],
                 ]
