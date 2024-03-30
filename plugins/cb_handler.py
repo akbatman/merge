@@ -118,20 +118,18 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     return
 
     elif cb.data == "video":
-        UPLOAD_AS_DOC.update({f"{cb.from_user.id}": False})
-        await cb.message.edit(
-             text="<b>‣ Would you like to <i>'Rename'</i> it, or the File name would be <i>'Default'.</i></b>",
-             reply_markup=InlineKeyboardMarkup(
-           [
-                [
-                    InlineKeyboardButton("💈 Default", callback_data="rename_NO"),
-                    InlineKeyboardButton("🏷️ Rename", callback_data="rename_YES"),
-                ],
+    UPLOAD_AS_DOC.update({"f{cb.from_user.id}": False})
+    await cb.message.edit(
+        text="<b> Would you like to <i>'Rename'</i> it, or the File name would be <i>'Default'</i></b>",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                InlineKeyboardButton("📁 Default", callback_data="rename_NO"),
+                InlineKeyboardButton("✏️ Rename", callback_data="rename_YES"),
                 InlineKeyboardButton("⬅️ Back", callback_data="back"),  # Add the back button here
-            ]
+            ],
         ),
     )
-    return
+return
     elif cb.data.startswith("rclone_"):
         if "save" in cb.data:
             message_id = cb.message.reply_to_message.document.file_id
