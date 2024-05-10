@@ -100,3 +100,4 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 ## Credits
 
 - [Sujan_BotZ](https://github.com/SujanCh549)
+- [Original Repo](https://github.com/yashoswalyo/MERGE-BOT)
