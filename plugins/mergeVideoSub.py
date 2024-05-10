@@ -2,7 +2,7 @@ import asyncio
 import os
 import time
 
-from bot import (
+from merge import (
     LOGGER,
     SUBTITLE_EXTENSIONS,
     UPLOAD_AS_DOC,
