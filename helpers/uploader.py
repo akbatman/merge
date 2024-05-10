@@ -3,7 +3,7 @@ import os
 import time
 
 from __init__ import LOGGER
-from bot import LOGCHANNEL, userBot
+from merge import LOGCHANNEL, userBot
 from config import Config
 from pyrogram import Client
 from pyrogram.types import CallbackQuery, Message
