@@ -7,7 +7,7 @@ from pyrogram.errors.rpc_error import UnknownError
 import asyncio
 from __init__ import LOGGER, gDict, queueDB
 import os
-from bot import delete_all
+from merge import delete_all
 from helpers.display_progress import Progress
 from helpers.ffmpeg_helper import extractAudios, extractSubtitles
 from helpers.uploader import uploadFiles
