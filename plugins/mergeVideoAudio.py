@@ -2,7 +2,7 @@ import asyncio
 import os
 import time
 
-from bot import (AUDIO_EXTENSIONS, LOGGER, UPLOAD_AS_DOC, UPLOAD_TO_DRIVE,
+from merge import (AUDIO_EXTENSIONS, LOGGER, UPLOAD_AS_DOC, UPLOAD_TO_DRIVE,
                  VIDEO_EXTENSIONS, delete_all, formatDB, gDict, queueDB)
 from config import Config
 from hachoir.metadata import extractMetadata
