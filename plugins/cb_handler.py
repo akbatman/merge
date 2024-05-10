@@ -12,7 +12,7 @@ from pyromod.listen import Client
 
 from helpers import database
 from helpers.utils import UserSettings
-from bot import (
+from merge import (
     LOGGER,
     UPLOAD_AS_DOC,
     UPLOAD_TO_DRIVE,
